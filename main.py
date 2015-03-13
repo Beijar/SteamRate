@@ -11,7 +11,7 @@ class Games(object):
         self.__thumbnail = json['thumbnail']
         self.__title = json['title']
     pass
-                          -
+
 
 def search_api(data):
     pass
