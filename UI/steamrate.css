@@ -1,0 +1,92 @@
+body {
+    background-image: url(1280x720.jpg);
+
+}
+
+h1 {
+    text-align:center;
+    font-size:300%;
+    font-family: calibri;
+    margin-top:20px
+}
+
+header {
+        font-family:calibri
+}
+
+header ul {
+    text-transform:uppercase;
+    font-size:30px;
+    text-align:center;
+    margin-right: 50px;
+}
+
+header ul li {
+    display:inline-block;
+    text-align: center;
+
+}
+
+header ul li a {
+    display:block;
+    color:#000;
+    text-decoration:none;
+    display:inline;
+    text-align:center;
+    padding:0px 10px 0px 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+    
+}
+a:hover{
+    
+    color: white;
+}
+
+form {
+    text-align:center;
+    margin-top: 50px
+}
+
+button {
+    cursor:pointer;
+    color:white;
+    padding:6px 20px;
+    border:1px solid black;
+    font-size:18px;
+    font-family: calibri;
+    background-color: black;
+
+    
+}
+
+button:hover{
+    background-color:slategrey;
+}
+
+
+form input[type="text"] {
+    height:24px;
+    width:340px;
+    border:1px solid black;
+    font-size: 16px;
+    color: black;
+    font-family: calibri;
+    padding: 4px 4px;
+
+
+}
+
+p{
+    text-align: center;
+    margin-top: 5px;
+    margin-right: 290px;
+    font-family: calibri;
+    font-style: italic;
+    font-size: 14px
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    grey;
+    font-size: 16px;
+    font-style: italic;
+
