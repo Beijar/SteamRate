@@ -29,8 +29,8 @@ def get_steam(userID):
                            params={ "include_appinfo": "1", "include_played_free_games": "1" })
 
     player_data = response.body
-    print player_data
     player_games = player_data['response']['games']
+
     for game in player_games:
         game_list.append(game['name'])
 
@@ -58,14 +58,14 @@ def get_metacritic(list):
          }
         )
 
-        #game_data.append(response.body['response']) ['<<find right specc>>]
+        game_data.append(response.body['result'])
 
         if response.body['result'] != False:
             print response.body['result']['score']
 
     #games = Games(game_data)
     #search_api(games)
-
+    return game_data
 
 get_steam(76561198007341040)
 
