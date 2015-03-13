@@ -11,7 +11,7 @@ class Games(object):
         self.__thumbnail = json['thumbnail']
         self.__title = json['title']
     pass
-
+                          -
 
 def search_api(data):
     pass
@@ -58,14 +58,15 @@ def get_metacritic(list):
          }
         )
 
-        game_data.append(response.body['result'])
-
         if response.body['result'] != False:
-            print response.body['result']['score']
+            game_data.append(response.body['result'])
+
+    for game in game_data:
+        print game
 
     #games = Games(game_data)
     #search_api(games)
-    return game_data
+    #return game_data
 
-get_steam(76561198007341040)
+get_steam(76561198042906374)
 
