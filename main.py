@@ -1,20 +1,13 @@
 __author__ = 'patrikpirat & BaraMarcus'
 
-import json
-from urllib import urlopen, quote_plus as urlencode
 import unirest
-
-class Games(object):
-    def __init__(self, json):
-        self.__score = json['score']
-        self.__userScore = json['user_score']
-        self.__thumbnail = json['thumbnail']
-        self.__title = json['title']
-    pass
+import json
+#from urllib import urlopen, quote_plus as urlencode
 
 
-def search_api(data):
-    pass
+def api_search(query):
+    user_data = get_steam(query)
+    return json.dumps({'game_data':user_data})
 
 
 def get_steam(userID):
@@ -29,12 +22,14 @@ def get_steam(userID):
                            params={ "include_appinfo": "1", "include_played_free_games": "1" })
 
     player_data = response.body
-    print player_data
     player_games = player_data['response']['games']
+
     for game in player_games:
         game_list.append(game['name'])
 
-    get_metacritic(game_list)
+    game_data = get_metacritic(game_list)
+
+    return game_data
 
 def get_metacritic(list):
     #TO DO: FILTER THE DATA RESULT FOR BETTER EFFICENCY
@@ -44,7 +39,6 @@ def get_metacritic(list):
         meta_key = keyfile.read()
 
     for game in list:
-
         response = unirest.post("https://byroredux-metacritic.p.mashape.com/find/game",
         headers={
         "X-Mashape-Key": str(meta_key),
@@ -58,14 +52,12 @@ def get_metacritic(list):
          }
         )
 
-        #game_data.append(response.body['response']) ['<<find right specc>>]
-
         if response.body['result'] != False:
-            print response.body['result']['score']
+            print response.body['result']['name']
+            game_data.append(response.body['result'])
 
-    #games = Games(game_data)
-    #search_api(games)
+    return game_data
 
 
-get_steam(76561198007341040)
+api_search(76561198042906374)
 

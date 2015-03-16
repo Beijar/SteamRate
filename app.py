@@ -1,7 +1,7 @@
 # coding: utf-8
 from flask import Flask, request, jsonify
 from main import api_search
-import unirest
+
 
 app = Flask(__name__)
 
@@ -37,8 +37,3 @@ def page_not_found(error):
         return render_template("error.html", code = 404, description = "Page not found"), 404
 
 
-
-if __name__ == '__main__':
-    app.debug = True
-    app.run()
-"""
