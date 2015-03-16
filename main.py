@@ -1,27 +1,13 @@
 __author__ = 'patrikpirat & BaraMarcus'
 
 import unirest
-from flask import jsonify
-#import json
+import json
 #from urllib import urlopen, quote_plus as urlencode
-
-
-class Games(object):
-    def __init__(self, json):
-        self.__score = json['score']
-        self.__userScore = json['user_score']
-        self.__thumbnail = json['thumbnail']
-        self.__title = json['title']
-    pass
 
 
 def api_search(query):
     user_data = get_steam(query)
-
-    for data in user_data:
-        print data
-
-
+    return json.dumps({'game_data':user_data})
 
 
 def get_steam(userID):
@@ -67,9 +53,9 @@ def get_metacritic(list):
         )
 
         if response.body['result'] != False:
-            game_data.append(response.body['result']['name'] + response.body['result']['score'])
+            print response.body['result']['name']
+            game_data.append(response.body['result'])
 
-    print game_data
     return game_data
 
 
