@@ -1,5 +1,5 @@
-from flask import Flask
-#from main import get_steam
+from flask import Flask, request, jsonify
+from main import search_api
 import unirest
 
 app = Flask(__name__)
@@ -7,7 +7,16 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return ''
+    query = request.args.get('q')
+
+    # No movie title was provided
+    if not query:
+        # Return an error and set an appropriate status code
+        return jsonify({'error': 'Bad Request',
+                        'code': 400,
+                        'message': 'No movie title was provided'
+                        }), 400
+    pass
 
 @app.route('/search')
 def search():

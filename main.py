@@ -1,8 +1,10 @@
 __author__ = 'patrikpirat & BaraMarcus'
 
-import json
-from urllib import urlopen, quote_plus as urlencode
 import unirest
+from flask import jsonify
+#import json
+#from urllib import urlopen, quote_plus as urlencode
+
 
 class Games(object):
     def __init__(self, json):
@@ -13,8 +15,13 @@ class Games(object):
     pass
 
 
-def search_api(data):
-    pass
+def api_search(query):
+    user_data = get_steam(query)
+
+    for data in user_data:
+        print data
+
+
 
 
 def get_steam(userID):
@@ -34,7 +41,9 @@ def get_steam(userID):
     for game in player_games:
         game_list.append(game['name'])
 
-    get_metacritic(game_list)
+    game_data = get_metacritic(game_list)
+
+    return game_data
 
 def get_metacritic(list):
     #TO DO: FILTER THE DATA RESULT FOR BETTER EFFICENCY
@@ -44,7 +53,6 @@ def get_metacritic(list):
         meta_key = keyfile.read()
 
     for game in list:
-
         response = unirest.post("https://byroredux-metacritic.p.mashape.com/find/game",
         headers={
         "X-Mashape-Key": str(meta_key),
@@ -59,14 +67,11 @@ def get_metacritic(list):
         )
 
         if response.body['result'] != False:
-            game_data.append(response.body['result'])
+            game_data.append(response.body['result']['name'] + response.body['result']['score'])
 
-    for game in game_data:
-        print game
+    print game_data
+    return game_data
 
-    #games = Games(game_data)
-    #search_api(games)
-    #return game_data
 
-get_steam(76561198042906374)
+api_search(76561198042906374)
 
