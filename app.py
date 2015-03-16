@@ -5,7 +5,7 @@ import unirest
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/api/v1/search')
 def index():
     query = request.args.get('q')
 
