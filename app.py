@@ -1,27 +1,39 @@
+# coding: utf-8
 from flask import Flask, request, jsonify
-from main import search_api
-import unirest
+from main import api_search
+
 
 app = Flask(__name__)
 
 
-@app.route('/api/v1/search')
+@app.route('/api/search')
 def index():
     query = request.args.get('q')
 
-    # No movie title was provided
+
     if not query:
-        # Return an error and set an appropriate status code
+
         return jsonify({'error': 'Bad Request',
                         'code': 400,
-                        'message': 'No movie title was provided'
+                        'message': 'No user ID was provided'
                         }), 400
     pass
 
-@app.route('/search')
-def search():
-    return 'Hello Marcus'
+    user_game = search_api(query)
+    return json.dumps(apidata)
 
-if __name__ == '__main__':
-    app.debug = True
-    app.run()
+
+
+
+#Kolla på errorhandler senare
+"""
+@app.errorhandler(404)
+def page_not_found(error):
+    if request.path.startswith("/api/"):
+        # API requests should get JSON
+        return jsonify({ 'error': 'Resource Not Found', 'code': 404, 'message': 'Requested endpoint does not exist' }), 404
+    else:
+        # Other requests should get HTML
+        return render_template("error.html", code = 404, description = "Page not found"), 404
+
+
