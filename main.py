@@ -6,8 +6,25 @@ import json
 
 
 def api_search(query):
-    user_data = get_steam(query)
-    return json.dumps({'game_data':user_data})
+    #filter json data
+    #name, user-score, metascore, thumbnail
+    sum_gameScore = []
+
+    user_games = get_steam(query)
+    user_scores = get_metacritic(user_games)
+
+    for scores in user_scores:
+        del scores['summary']
+        del scores['rating']
+        del scores['publisher']
+        del scores['platform']
+        sum_gameScore.append(scores)
+
+    for sum in sum_gameScore:
+        print sum
+
+
+    return sum_gameScore
 
 
 def get_steam(userID):
@@ -27,18 +44,17 @@ def get_steam(userID):
     for game in player_games:
         game_list.append(game['name'])
 
-    game_data = get_metacritic(game_list)
+    return game_list
 
-    return game_data
-
-def get_metacritic(list):
-    #TO DO: FILTER THE DATA RESULT FOR BETTER EFFICENCY
+def get_metacritic(game_list):
+    #TO DO: DYNAMIC RETURN THE DATA RESULT FOR BETTER EFFICENCY
     game_data = []
+    gamestuff = game_list[0:10]
 
     with open('meta_key.txt') as keyfile:
         meta_key = keyfile.read()
 
-    for game in list:
+    for game in gamestuff:
         response = unirest.post("https://byroredux-metacritic.p.mashape.com/find/game",
         headers={
         "X-Mashape-Key": str(meta_key),
@@ -53,8 +69,8 @@ def get_metacritic(list):
         )
 
         if response.body['result'] != False:
-            print response.body['result']['name']
-            game_data.append(response.body['result'])
+            game_score = response.body['result']
+            game_data.append(game_score)
 
     return game_data
 
