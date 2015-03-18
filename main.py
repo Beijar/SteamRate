@@ -1,8 +1,20 @@
 __author__ = 'patrikpirat & BaraMarcus'
 
 import unirest
-import json
+#from flask import jsonify
+#import json
 #from urllib import urlopen, quote_plus as urlencode
+
+class Games(object):
+    def __init__(self, games):
+        self.name = games['name']
+        self.url = games['url']
+        self.userscore = games['userscore']
+        self.score = games['score']
+        self.rlsdate = games['rlsdate']
+        self.genre = games['genre']
+        self.thumbnail = games['thumbnail']
+        self.developer = games['developer']
 
 
 def api_search(query):
@@ -19,10 +31,6 @@ def api_search(query):
         del scores['publisher']
         del scores['platform']
         sum_gameScore.append(scores)
-
-    for sum in sum_gameScore:
-        print sum
-
 
     return sum_gameScore
 
