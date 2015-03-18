@@ -1,5 +1,6 @@
 # coding: utf-8
-from flask import Flask, request, jsonify
+from flask import Flask, request, Response, jsonify
+import json
 from main import api_search
 
 
@@ -7,26 +8,24 @@ app = Flask(__name__)
 
 
 @app.route('/api/search')
-def index():
+def search_api():
     query = request.args.get('q')
 
-
     if not query:
-
         return jsonify({'error': 'Bad Request',
                         'code': 400,
                         'message': 'No user ID was provided'
                         }), 400
-    pass
 
-    user_game = search_api(query)
-    return json.dumps(apidata)
 
+    user_game = api_search(query)
+
+    return Response(json.dumps({"result":user_game}, indent=4), status=200, mimetype='application/json')
 
 
 
 #Kolla på errorhandler senare
-"""
+'''
 @app.errorhandler(404)
 def page_not_found(error):
     if request.path.startswith("/api/"):
@@ -35,5 +34,8 @@ def page_not_found(error):
     else:
         # Other requests should get HTML
         return render_template("error.html", code = 404, description = "Page not found"), 404
+'''
 
-
+if __name__ == '__main__':
+    app.debug = True
+    app.run()
