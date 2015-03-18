@@ -1,5 +1,5 @@
 # coding: utf-8
-from flask import Flask, request, Response
+from flask import Flask, request, Response, jsonify
 import json
 from main import api_search
 
