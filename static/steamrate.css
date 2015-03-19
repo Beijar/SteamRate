@@ -1,11 +1,9 @@
 body {
-background-color: white;
-overflow-x: hidden;
-
+background-color:black;
+    
 }
 
 header{
-    background-color: ;
     margin: auto;
     text-align: center;
     width: auto;
@@ -13,7 +11,7 @@ header{
 
 header ul {
 
-    font-size:25px;
+    font-size:35px;
     text-align:center;
 }
 
@@ -22,7 +20,6 @@ header ul li {
     text-align: center;
     padding-left: 40px;
     padding-right: 70px;
-
     
 
 }
@@ -37,6 +34,7 @@ header ul li a {
     margin-right: 20px;
     margin-left: 20px;
     font-family: avenir;
+    color: white;
     
     
 }
@@ -46,32 +44,32 @@ a:hover{
 
 form {
     text-align:center;
-    margin-top: 30px;
-    
+    padding: 0.0.0.0;
+    margin: 0.0.0.0;
 }
 
 button {
     cursor:pointer;
-    color:white;
+    color:black;
     padding:6px 20px;
     border:1px solid black;
     font-size:18px;
     font-family: calibri;
-    background-color: black;
+    background-color: grey;
     
 
     
 }
 
 button:hover{
-    background-color:slategrey;
+    background-color:whitesmoke;
 }
 
 
 form input[type="text"] {
     height:24px;
     width:340px;
-    border:1px solid black;
+    border:1px solid white;
     font-size: 16px;
     color: black;
     font-family: calibri;
@@ -91,9 +89,8 @@ form input[type="text"] {
 
 
 #steamid{
-
-    text-align: center;
-
+text-align: center;
+background-color: lightcyan;
 }
 
 #steamid ul li{    
@@ -108,22 +105,21 @@ display: inline-block;
 
 font-family:avenir;
 padding:0px 10px 0px 10px;
-margin-right: 90px;
-margin-left: 90px;
+margin-right: 190px;
+margin-left: 0px;
 font-weight: 200;
+font-size: 35px;
+
 
 
 }
 
-#steamid hr{
-width: 50%
-}
 
 hr{
 width: 100%;
     height: 1px;
     color: black;
-    background-color: black;
+    background-color: white;
     border: 0 none;
     margin-bottom: 20px;
 
@@ -152,38 +148,29 @@ h3{
 }
 
 #games ul{
-    float: left;
+text-align: center;
+font-family: avenir;
     display: inline-block;
-list-style: none;
-    margin-left: 33%;
-    
-
+margin-left: 250px;
 
 }
+
 
 #games ul li{
-
-    font-family: avenir;
+    display: inline-block;
+    color: white;
+    font-size: 35px;
+    margin-right: 250px
     
-}
-
-#score ul{
-float: right;
-display: inline-block;
-list-style: none;
-margin-right: 420px;    
-
 
 }
 
-#score ul li{
-font-family: avenir;
-}
 
-a {
+
+a{
 font-family: avenir;
 text-decoration: none;
-color: black;
+color: white;
 margin-left: 5px;
 margin-top: 5px;
 
@@ -194,4 +181,19 @@ h1{
 text-align: center;
     font-family: avenir;
     font-weight: 100;
+    color:white;
+    font-size: 50px;
+    text-decoration: underline
 }
+
+#powered a{
+font-size: 14px;
+margin-left: 410px;
+color: white;
+    font-style: italic;
+}
+
+img{
+margin-left: 480px;
+}
+
