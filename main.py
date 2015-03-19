@@ -6,6 +6,7 @@ import unirest
 #from urllib import urlopen, quote_plus as urlencode
 
 class Games(object):
+    #for next api version
     def __init__(self, games):
         self.name = games['name']
         self.url = games['url']
@@ -15,6 +16,7 @@ class Games(object):
         self.genre = games['genre']
         self.thumbnail = games['thumbnail']
         self.developer = games['developer']
+        pass
 
 
 def api_search(query):
@@ -81,7 +83,4 @@ def get_metacritic(game_list):
             game_data.append(game_score)
 
     return game_data
-
-
-api_search(76561198042906374)
 

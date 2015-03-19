@@ -1,11 +1,18 @@
 # coding: utf-8
-from flask import Flask, request, Response, jsonify
+from flask import Flask, render_template, request, Response, jsonify
 import json
 from main import api_search
 
 
 app = Flask(__name__)
 
+@app.route("/")
+def hello():
+    return "Hello World!"
+
+@app.route('/search')
+def search_js():
+    return render_template("search.html")
 
 @app.route('/api/search')
 def search_api():

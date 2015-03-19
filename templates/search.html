@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>SteamRate</title>
+    <link href="{{ url_for('static', filename='steamrate.css') }}" rel="stylesheet" type="text/css">
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <ul>
+            <li>
+                <a href="index.html">SteamRate</a>  
+            </li>
+
+            <li>
+                <a href="index.html">Dokumentation</a> 
+            </li>
+        </ul>
+    </header>
+    <hr>
+<main>
+    <section>  
+        <form action="/search" class="searchform" method="GET">
+            <input placeholder="Steam ID" type="text" name="q" value=""> <button type=
+            "submit">Search</button>
+        </form>
+    </section>
+
+<div id="steamid">
+    <ul>
+    <li><h2>"steamid"</h2></li>
+    <li><h2>"summa"</h2></li>
+    </ul>
+    <hr>
+</div>
+
+<div id="games">
+    <ul>
+    <li>"name"</li> 
+         <li>"name"</li> 
+         <li>"name"</li> 
+         <li>"name"</li> 
+         <li>"name"</li> 
+         <li>"name"</li> 
+         <li>"name"</li> 
+         <li>"name"</li> 
+         <li>"name"</li> 
+        </ul>
+</div>    
+
+<div id="score">
+    <ul>
+        <li>"score"</li>
+        <li>"score"</li>
+        <li>"score"</li>
+        <li>"score"</li>
+        <li>"score"</li>
+        <li>"score"</li>
+        <li>"score"</li>
+        <li>"score"</li>
+        <li>"score"</li>
+    </ul>
+</div>
+
+<div class="footer">
+    <hr>
+<a href="http://steampowered.com" target="_blank">Powered by Steam</a>  
+    </div>
+</main>
+
+    <script type="text/javascript">
+		// Intead of hard coding domain
+		var ENDPOINT = "http://127.0.0.1:5000/api/search";
+		
+		// Event handler for form submission
+		function doSearch(){
+			var q = $("input[name=q]").val();
+			$.ajax({
+				url: ENDPOINT,
+				data: {q: q},
+				success: showResult,
+				dataType: "json"
+			});
+			// Form should not submit as normal
+			return false;
+		}
+		
+		// Event handler for successful API call
+		function showResult(response){
+			console.log(response);
+			
+            userGames = JSON.parse(response);
+
+            document.getElementById("games").innerHTML =
+                    userGames.result.name;
+			
+			// And so forth.....		
+			
+			$("#games, #score").fadeIn(1000)
+		}
+		
+		// Setup initial state
+		$(function(){
+			$("form").submit(doSearch);
+			$("#games, #score").hide();
+		});
+    </script>
+</body>
+</html>
