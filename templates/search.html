@@ -8,54 +8,55 @@
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 </head>
 
- <body>
-    <header>
+<body>
+   <header>
         <ul>
             <li>
                 <a href="index.html">STEAMRATE</a>
             </li>
-
             <li>
                 <a href="index.html">DOKUMENTATION</a>
             </li>
         </ul>
-    </header>
-    <hr>
-    <img src="Minimalist_Steam_Icon_by_un10ck.png">
+   </header>
+   <div id="background"></div>
+   <div id="searchfield">
+        <div id="logo">
+            <img id="steamlogo" src="{{ url_for('static', filename = 'testlogo.png') }}">
+        </div>
 
-    <section>
-        <form action="/search" class="searchform" method="get">
-            <input name="q" placeholder="Steam ID" type="text" value="">
-            <button type="submit">Search</button>
-        </form>
-    </section>
+        <section>
+            <form action="/search" class="searchform" method="get">
+                <input name="q" placeholder="Steam ID" type="text" value="">
+                <button type="submit">Search</button>
+            </form>
+        </section>
+   </div>
 
-    <div id="powered">
-        <a href="http://steampowered.com" target="_blank">Powered by Steam</a>
-    </div>
-
-    <div id="steamid">
+   <div id="steamid">
         <ul>
             <li>
                 <h2>Patrik Beijar's average score:</h2>
             </li>
-
             <li>
                 <h2>93%</h2>
             </li>
         </ul>
-    </div>
+   </div>
     
-    <h1>Games</h1>
+   <h1>Games</h1>
     
-    <div id="games">
-        <ul id="game">
+   <div id="result">
+        <ul class="games">
         </ul>
-    </div>
-        
-        
+   </div>
 
-    <script type="text/javascript">
+   <div id="powered">
+        <a href="http://steampowered.com" target="_blank">Powered by Steam</a>
+   </div>
+
+
+   <script type="text/javascript">
 		// Intead of hard coding domain
 		var ENDPOINT = "http://127.0.0.1:5000/api/search";
 		
@@ -75,19 +76,19 @@
 		// Event handler for successful API call
 		function showResult(response){
 			console.log(response);
-            var $ul = $("#game");
+            var $ul = $(".games");
             for (var i = 0; i < response.result.length; ++i) {
-                $ul.append('<li>' + response.result[i].name + " " +response.result[i].score + '</li>');
+                $ul.append('<li class="game">' + response.result[i].name + '</li>');
+                }
+            $("#games").fadeIn(1000);
             }
 
-			$("#games, #score").fadeIn(1000)
-		}
 		
 		// Setup initial state
 		$(function(){
 			$("form").submit(doSearch);
-			$("#games, #score").hide();
+			//$("#games, #score").hide();
 		});
-    </script>
+   </script>
 </body>
 </html>

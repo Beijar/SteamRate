@@ -1,18 +1,24 @@
-body {
-background-color:black;
-    
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
 }
 
 header{
+    width: 100%;
     margin: auto;
     text-align: center;
-    width: auto;
+    z-index: 2;
+    position: absolute;
 }
 
 header ul {
-
-    font-size:35px;
-    text-align:center;
+    font-size: 25px;
+    text-align: center;
+    margin: 0;
+    border-bottom: 1px solid #e4e8ec;
 }
 
 header ul li {
@@ -20,32 +26,47 @@ header ul li {
     text-align: center;
     padding-left: 40px;
     padding-right: 70px;
-    
-
+    height: 50px;
+    padding-top: 20px;
 }
 
 header ul li a {
-    display:block;
-    color:#000;
     text-decoration:none;
     display:inline;
     text-align:center;
-    padding:0px 10px 0px 10px;
-    margin-right: 20px;
-    margin-left: 20px;
-    font-family: avenir;
-    color: white;
-    
-    
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #e4e8ec;
 }
+
 a:hover{
      color: grey;
 }
 
+#background{
+    z-index: 1;
+    background-image: url("wallhaven-5168.png");
+    left: 0;
+    right: 0;
+    background-size: cover;
+    height: 900px;
+}
+
+#searchfield{
+    z-index: 2;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 300px;
+}
+
+#logo{
+    padding-bottom: 20px;
+}
+
 form {
     text-align:center;
-    padding: 0.0.0.0;
-    margin: 0.0.0.0;
+    padding: 0, 0, 0, 0;
+    margin: 0, 0, 0, 0;
 }
 
 button {
@@ -56,15 +77,11 @@ button {
     font-size:18px;
     font-family: calibri;
     background-color: grey;
-    
-
-    
 }
 
 button:hover{
     background-color:whitesmoke;
 }
-
 
 form input[type="text"] {
     height:24px;
@@ -75,11 +92,7 @@ form input[type="text"] {
     font-family: calibri;
     padding: 4px 4px;
     margin-bottom: 20px;
-
 }
-
-
-
 
 ::-webkit-input-placeholder { /* WebKit browsers */
     color:    grey;
@@ -88,54 +101,37 @@ form input[type="text"] {
 }
 
 
-#steamid{
-text-align: center;
-background-color: lightcyan;
+#steamid ul{
+    text-align: center;
+    background-color: #081930;
+    margin: 0;
 }
 
-#steamid ul li{    
-list-style-type: none;    
-text-align:center;
-display: inline-block;
-        list-style:none;
-
+#steamid ul li{
+    text-align:center;
+    display: inline-block;
+    list-style:none;
+    margin: 0;
+    color: white;
 }
 
 #steamid ul li h2{
-
-font-family:avenir;
-padding:0px 10px 0px 10px;
-margin-right: 190px;
-margin-left: 0px;
-font-weight: 200;
-font-size: 35px;
-
-
-
-}
-
-
-hr{
-width: 100%;
-    height: 1px;
-    color: black;
-    background-color: white;
-    border: 0 none;
-    margin-bottom: 20px;
-
-
+    font-family:avenir;
+    padding:0, 10px, 0, 10px;
+    margin-right: 190px;
+    margin-left: 0;
+    font-weight: 200;
+    font-size: 35px;
 }
 
 h3{
     margin-left: 410px;
-    margin-bottom:0px;
+    margin-bottom:0;
     font-size: 16px;
     font-family: avenir;
     font-weight: 200;
     font-style: italic;
 }
-
-
 
 .footer {
     background-color: white;
@@ -147,53 +143,68 @@ h3{
     position: relative;
 }
 
-#games ul{
-text-align: center;
-font-family: avenir;
-    display: inline-block;
-margin-left: 250px;
-
+.games{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: avenir;
+    width: 100%;
 }
 
 
-#games ul li{
-    display: inline-block;
+.game{
+    display:block;
     color: white;
     font-size: 35px;
-    margin-right: 250px
-    
-
+    margin-top: 20px;
+    background-color: #b4d455;
+    text-align: center;
 }
 
+.data {
+    margin: 0;
+    width: 100%;
+    padding: 0;
+}
+
+.data li {
+    display: inline-block;
+    height: 100px;
+    width: 20%;
+    text-align: center;
+    margin: 0;
+    padding-top: 50px;
+}
 
 
 a{
-font-family: avenir;
-text-decoration: none;
-color: white;
-margin-left: 5px;
-margin-top: 5px;
-
-
+    font-family: avenir;
+    text-decoration: none;
+    color: white;
+    margin-left: 5px;
+    margin-top: 5px;
 }
 
 h1{
-text-align: center;
+    text-align: center;
     font-family: avenir;
     font-weight: 100;
-    color:white;
+    color:black;
     font-size: 50px;
-    text-decoration: underline
+    text-decoration: underline;
 }
 
 #powered a{
-font-size: 14px;
-margin-left: 410px;
-color: white;
+    font-size: 14px;
+    float: right;
+    margin-right: 5%;
+    color: white;
     font-style: italic;
 }
 
 img{
-margin-left: 480px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
