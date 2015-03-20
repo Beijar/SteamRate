@@ -45,71 +45,11 @@
             </li>
         </ul>
     </div>
-
     
-<h1>Games</h1>
+    <h1>Games</h1>
     
     <div id="games">
-
-        <ul>
-            <li>
-                Counter strike
-            </li>
-            <li>89/100</li>
-        </ul>
-            <ul>
-            <li>
-                Counter strike
-            </li>
-            <li>89/100</li>
-        </ul>
-                <ul>
-            <li>
-                Counter strike
-            </li>
-            <li>89/100</li>
-        </ul>
-                <ul>
-            <li>
-                Counter strike
-            </li>
-            <li>89/100</li>
-        </ul>
-                <ul>
-            <li>
-                Counter strike
-            </li>
-            <li>89/100</li>
-        </ul>
-                <ul>
-            <li>
-                Counter strike
-            </li>
-            <li>89/100</li>
-        </ul>
-                <ul>
-            <li>
-                Counter strike
-            </li>
-            <li>89/100</li>
-        </ul>
-                <ul>
-            <li>
-                Counter strike
-            </li>
-            <li>89/100</li>
-        </ul>
-                <ul>
-            <li>
-                Counter strike
-            </li>
-            <li>89/100</li>
-        </ul>
-                <ul>
-            <li>
-                Counter strike
-            </li>
-            <li>89/100</li>
+        <ul id="game">
         </ul>
     </div>
         
@@ -135,14 +75,11 @@
 		// Event handler for successful API call
 		function showResult(response){
 			console.log(response);
-			
-            userGames = JSON.parse(response);
+            var $ul = $("#game");
+            for (var i = 0; i < response.result.length; ++i) {
+                $ul.append('<li>' + response.result[i].name + " " +response.result[i].score + '</li>');
+            }
 
-            document.getElementById("games").innerHTML =
-                    userGames.result.name;
-			
-			// And so forth.....		
-			
 			$("#games, #score").fadeIn(1000)
 		}
 		
