@@ -38,31 +38,12 @@
 </div>
 
 <div id="games">
-    <ul>
-    <li>"name"</li> 
-         <li>"name"</li> 
-         <li>"name"</li> 
-         <li>"name"</li> 
-         <li>"name"</li> 
-         <li>"name"</li> 
-         <li>"name"</li> 
-         <li>"name"</li> 
-         <li>"name"</li> 
-        </ul>
+    <ul id="game">
+    </ul>
 </div>    
 
 <div id="score">
-    <ul>
-        <li>"score"</li>
-        <li>"score"</li>
-        <li>"score"</li>
-        <li>"score"</li>
-        <li>"score"</li>
-        <li>"score"</li>
-        <li>"score"</li>
-        <li>"score"</li>
-        <li>"score"</li>
-    </ul>
+
 </div>
 
 <div class="footer">
@@ -91,14 +72,11 @@
 		// Event handler for successful API call
 		function showResult(response){
 			console.log(response);
-			
-            userGames = JSON.parse(response);
+            var $ul = $("#game");
+            for (var i = 0; i < response.result.length; ++i) {
+                $ul.append('<li>' + response.result[i].name + " " +response.result[i].score + '</li>');
+            }
 
-            document.getElementById("games").innerHTML =
-                    userGames.result.name;
-			
-			// And so forth.....		
-			
 			$("#games, #score").fadeIn(1000)
 		}
 		
