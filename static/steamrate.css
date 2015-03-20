@@ -197,3 +197,24 @@ img{
 margin-left: 480px;
 }
 
+
+p{
+color: white;
+    font-family: avenir;
+    margin-left: 100px;
+    width: 500px;
+}
+
+
+h2{
+font-family: avenir;
+    color: white;
+    margin-left: 100px;
+    font-size: 30px;
+
+}
+
+pre{
+color: white;
+    margin-left: 100px;
+}
