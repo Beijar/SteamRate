@@ -11,6 +11,7 @@ app = Flask(__name__)
 def search_js():
     return render_template("search.html")
 
+
 @app.route('/api/search')
 def search_api():
     query = request.args.get('q')
@@ -28,7 +29,7 @@ def search_api():
 
 @app.route('/docs')
 def docs():
-    return render_template(docs.html)
+    return render_template("docs.html")
 
 
 #Kolla på errorhandler senare
