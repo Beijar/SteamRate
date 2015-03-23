@@ -6,11 +6,8 @@ from main import api_search
 
 app = Flask(__name__)
 
-@app.route("/")
-def hello():
-    return "Hello World!"
 
-@app.route('/search')
+@app.route('/')
 def search_js():
     return render_template("search.html")
 
@@ -29,6 +26,9 @@ def search_api():
 
     return Response(json.dumps({"result":user_game}, indent=4), status=200, mimetype='application/json')
 
+@app.route('/docs')
+def docs():
+    return render_template(docs.html)
 
 
 #Kolla på errorhandler senare

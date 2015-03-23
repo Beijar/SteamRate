@@ -33,13 +33,21 @@
         </section>
    </div>
 
-   <div id="steamid">
+  <div class="spinner">
+      <div class="rect1"></div>
+      <div class="rect2"></div>
+      <div class="rect3"></div>
+      <div class="rect4"></div>
+      <div class="rect5"></div>
+  </div>
+
+   <div class="steamid">
         <ul>
             <li>
-                <h2>Patrik Beijar's average score:</h2>
+                <h2>Your average score:</h2>
             </li>
             <li>
-                <h2>93%</h2>
+                <h2 id="average">92/100</h2>
             </li>
         </ul>
    </div>
@@ -62,6 +70,7 @@
 		
 		// Event handler for form submission
 		function doSearch(){
+            $(".spinner").show();
 			var q = $("input[name=q]").val();
 			$.ajax({
 				url: ENDPOINT,
@@ -77,9 +86,14 @@
 		function showResult(response){
 			console.log(response);
             var $ul = $(".games");
+
             for (var i = 0; i < response.result.length; ++i) {
+                $ul.append('<li class=game><img class="thumbnail" src="' + response.result[i].thumbnail + '">' + '</li>');
                 $ul.append('<li class="game">' + response.result[i].name + '</li>');
+                $ul.append('<li class="game">' + response.result[i].score + '</li>');
                 }
+            $(".spinner").hide();
+            $('html, body').animate({ scrollTop: 900 }, 1000);
             $("#games").fadeIn(1000);
             }
 
@@ -87,7 +101,7 @@
 		// Setup initial state
 		$(function(){
 			$("form").submit(doSearch);
-			//$("#games, #score").hide();
+            $(".spinner, #average").hide();
 		});
    </script>
 </body>
