@@ -5,8 +5,17 @@
 
     <title>SteamRate</title>
     <link href="{{ url_for('static', filename='steamrate.css') }}" rel="stylesheet" type="text/css">
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+<link href="{{ url_for('static', filename='animations.css') }}" rel="stylesheet" type="text/css">
+    
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
 </head>
+<script>
+	$('#animatedElement').click(function() {
+		$(this).addClass("pulse");
+	});
+</script>
 
 <body>
    <header>
@@ -39,7 +48,7 @@
                 <h2>Patrik Beijar's average score:</h2>
             </li>
             <li>
-                <h2>93%</h2>
+                <h2 id="average" class="pulse">93%</h2>
             </li>
         </ul>
    </div>

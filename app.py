@@ -10,9 +10,11 @@ app = Flask(__name__)
 def hello():
     return "Hello World!"
 
-@app.route('/search')
-def search_js():
-    return render_template("search.html")
+
+
+@app.route('/docs')
+def docs():
+    return render_template("docs.html")
 
 @app.route('/api/search')
 def search_api():
