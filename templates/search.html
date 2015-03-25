@@ -46,9 +46,7 @@
             <li>
                 <h2>Your average score:</h2>
             </li>
-            <li>
-                <h2 id="average">92/100</h2>
-            </li>
+            <li id="average"></li>
         </ul>
    </div>
     
@@ -60,7 +58,7 @@
    </div>
 
    <div id="powered">
-        <a href="http://steampowered.com" target="_blank">Powered by Steam</a>
+        <a href="http://steampowered.com" target="_blank">[ Powered by Steam ]</a>
    </div>
 
 
@@ -86,22 +84,25 @@
 		function showResult(response){
 			console.log(response);
             var $ul = $(".games");
+            var $average = $("#average");
+
+            $average.append('<h2 class="pulse">' + response.average + '</h2>');
 
             for (var i = 0; i < response.result.length; ++i) {
                 $ul.append('<li class=game><img class="thumbnail" src="' + response.result[i].thumbnail + '">' + '</li>');
                 $ul.append('<li class="game">' + response.result[i].name + '</li>');
-                $ul.append('<li class="game">' + response.result[i].score + '</li>');
+                $ul.append('<li class="game">' + response.result[i].userscore + '</li>');
                 }
             $(".spinner").hide();
             $('html, body').animate({ scrollTop: 900 }, 1000);
-            $("#games").fadeIn(1000);
+            $("#games").fadeIn(1100);
             }
 
 		
 		// Setup initial state
 		$(function(){
 			$("form").submit(doSearch);
-            $(".spinner, #average").hide();
+            $(".spinner").hide();
 		});
    </script>
 </body>

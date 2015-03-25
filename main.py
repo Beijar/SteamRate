@@ -1,27 +1,9 @@
 __author__ = 'patrikpirat & BaraMarcus'
 
 import unirest
-#from flask import jsonify
-#import json
-#from urllib import urlopen, quote_plus as urlencode
-
-class Games(object):
-    #for next api version
-    def __init__(self, games):
-        self.name = games['name']
-        self.url = games['url']
-        self.userscore = games['userscore']
-        self.score = games['score']
-        self.rlsdate = games['rlsdate']
-        self.genre = games['genre']
-        self.thumbnail = games['thumbnail']
-        self.developer = games['developer']
-        pass
 
 
 def api_search(query):
-    #filter json data
-    #name, user-score, metascore, thumbnail
     sum_gameScore = []
 
     user_games = get_steam(query)
@@ -36,6 +18,21 @@ def api_search(query):
 
     return sum_gameScore
 
+def count_average(game_score):
+    total_score = 0
+    count = 0
+
+    for score in game_score:
+        userscore = score['userscore']
+
+        if userscore != None:
+            total_score += userscore
+            count += 1
+
+    average = total_score/count
+    average_result = round(average, 1)
+
+    return average_result
 
 def get_steam(userID):
     with open('steam_key.txt', 'r') as f:
@@ -57,7 +54,7 @@ def get_steam(userID):
     return game_list
 
 def get_metacritic(game_list):
-    #TO DO: DYNAMIC RETURN THE DATA RESULT FOR BETTER EFFICENCY
+    #TO DO: MULTITHREAD API CALLS
     game_data = []
     gamestuff = game_list[0:10]
 
@@ -83,4 +80,3 @@ def get_metacritic(game_list):
             game_data.append(game_score)
 
     return game_data
-
