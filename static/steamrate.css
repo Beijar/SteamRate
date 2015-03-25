@@ -169,7 +169,7 @@ form input[type="text"] {
 }
 
 .steamid ul li h2 {
-    font-family:avenir;
+    font-family:avenir, sans-serif;
     padding:0, 10px, 0, 10px;
     margin-right: 50px;
     margin-left: 0;
@@ -192,7 +192,7 @@ form input[type="text"] {
     list-style: none;
     padding: 0;
     margin: 0;
-    font-family: avenir;
+    font-family: avenir, sans-serif;
     width: 100%;
 }
 
@@ -223,7 +223,7 @@ form input[type="text"] {
 
 
 a {
-    font-family: avenir;
+    font-family: avenir, sans-serif;
     text-decoration: none;
     color: white;
     margin-left: 5px;
@@ -232,7 +232,7 @@ a {
 
 h1 {
     text-align: center;
-    font-family: avenir;
+    font-family: avenir, sans-serif;
     font-weight: 100;
     font-size: 50px;
     color: white;
@@ -242,7 +242,7 @@ h1 {
 }
 
 h2 {
-    font-family: avenir;
+    font-family: avenir, sans-serif;
     color: white;
     margin-left: 100px;
     font-size: 40px;
@@ -252,7 +252,7 @@ h3 {
     margin-left: 410px;
     margin-bottom:0;
     font-size: 16px;
-    font-family: avenir;
+    font-family: avenir, sans-serif;
     font-weight: 200;
     font-style: italic;
 }
@@ -261,7 +261,6 @@ img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-
 }
 
 
@@ -271,7 +270,7 @@ img {
 
 p {
     color: white;
-    font-family: avenir;
+    font-family: avenir, sans-serif;
     margin-left: 100px;
     width: 500px;
 }
