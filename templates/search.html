@@ -63,10 +63,8 @@
 
 
    <script type="text/javascript">
-		// Intead of hard coding domain
 		var ENDPOINT = "http://127.0.0.1:5000/api/search";
 		
-		// Event handler for form submission
 		function doSearch(){
             $(".spinner").show();
 			var q = $("input[name=q]").val();
@@ -76,11 +74,9 @@
 				success: showResult,
 				dataType: "json"
 			});
-			// Form should not submit as normal
 			return false;
 		}
 		
-		// Event handler for successful API call
 		function showResult(response){
 			console.log(response);
             var $ul = $(".games");
@@ -99,7 +95,6 @@
             }
 
 		
-		// Setup initial state
 		$(function(){
 			$("form").submit(doSearch);
             $(".spinner").hide();

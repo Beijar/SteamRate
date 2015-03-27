@@ -1,232 +1,84 @@
-html,body
-{
+html,body{
     width: 100%;
     height: 100%;
     margin: 0px;
     padding: 0px;
 }
 
-header{
-    width: 100%;
-    margin: auto;
-    text-align: center;
-    z-index: 2;
-    position: absolute;
-}
-
-header ul {
-    font-size: 25px;
-    text-align: center;
-    margin: 0;
-    border-bottom: 1px solid #e4e8ec;
-}
-
-header ul li {
-    display:inline-block;
-    text-align: center;
-    padding-left: 40px;
-    padding-right: 70px;
-    height: 50px;
-    padding-top: 20px;
-}
-
-header ul li a {
-    text-decoration:none;
-    display:inline;
-    text-align:center;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: #e4e8ec;
-}
-
-a:hover{
-     color: grey;
-}
-
-#background{
-    z-index: 1;
-    background-image: url("wallhaven-5168.png");
-    left: 0;
-    right: 0;
-    background-size: cover;
-    height: 900px;
-}
-
-#searchfield{
-    z-index: 2;
-    position: absolute;
-    right: 0;
-    left: 0;
-    top: 300px;
-}
-
-#logo{
-    padding-bottom: 20px;
-}
-
-form {
-    text-align:center;
-    padding: 0, 0, 0, 0;
-    margin: 0, 0, 0, 0;
-}
-
-button {
-    cursor:pointer;
-    color:black;
-    padding:6px 20px;
-    border:1px solid black;
-    font-size:18px;
-    font-family: calibri;
-    background-color: grey;
-}
-
-button:hover{
-    background-color:whitesmoke;
-}
-
-form input[type="text"] {
-    height:24px;
-    width:340px;
-    border:1px solid white;
-    font-size: 16px;
+h2{
+font-family: avenir;
     color: black;
-    font-family: calibri;
-    padding: 4px 4px;
-    margin-bottom: 20px;
+    margin-left: 50px;
+    font-size: 26px;
 }
 
-::-webkit-input-placeholder { /* WebKit browsers */
-    color:    grey;
-    font-size: 16px;
-    font-style: italic;
-}
-
-
-#steamid ul{
-    text-align: center;
-    background-color: #081930;
-    margin: 0;
-}
-
-#steamid ul li{
-    text-align:center;
-    display: inline-block;
-    list-style:none;
-    margin: 0;
-    color: white;
-}
-
-#steamid ul li h2{
-    font-family:avenir;
-    padding:0, 10px, 0, 10px;
-    margin-right: 190px;
-    margin-left: 0;
-    font-weight: 200;
-    font-size: 35px;
-}
 
 h3{
-    margin-left: 410px;
-    margin-bottom:0;
-    font-size: 16px;
+    margin-left: 50px;
+    font-size: 18px;
     font-family: avenir;
     font-weight: 200;
-    font-style: italic;
-}
-
-.footer {
-    background-color: white;
-    height: 50px;
-    width: 100%;
-    clear: both;
-    margin: 0;
-    margin-top: 220px;
-    position: relative;
-}
-
-.games{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    font-family: avenir;
-    width: 100%;
-}
-
-
-.game{
-    display:block;
-    color: white;
-    font-size: 35px;
-    margin-top: 20px;
-    background-color: #b4d455;
-    text-align: center;
-}
-
-.data {
-    margin: 0;
-    width: 100%;
-    padding: 0;
-}
-
-.data li {
-    display: inline-block;
-    height: 100px;
-    width: 20%;
-    text-align: center;
-    margin: 0;
-    padding-top: 50px;
-}
-
-
-a{
-    font-family: avenir;
-    text-decoration: none;
-    color: white;
-    margin-left: 5px;
-    margin-top: 5px;
-}
-
-h1{
-    text-align: center;
-    font-family: avenir;
-    font-weight: 100;
-    color:black;
-    font-size: 50px;
     text-decoration: underline;
 }
 
-#powered a{
-    font-size: 14px;
-    float: right;
-    margin-right: 5%;
-    color: white;
-    font-style: italic;
+
+
+h1{
+    font-family: avenir;
+    font-weight: 100;
+    color:black;
+
 }
 
-img{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 
 p{
-color: black;
+    color: black;
     font-family: avenir;
-    margin-left: 100px;
+    margin-left: 50px;
     width: 500px;
 }
 
 
-h2{
-font-family: avenir;
-    color: black;
-    margin-left: 100px;
-    font-size: 30px;
 
-}
 
 pre{
-color: black;
-    margin-left: 100px;
+    color: black;
+    margin-left: 50px;
 }
 
+
+#powered a {
+    font-size: 20px;
+    float: right;
+    margin-right: 5%;
+    color: black;
+    font-style: italic;
+}
+
+
+#python{
+    width: 50%;
+    padding: 10px;
+    border: 1px solid black;
+    margin-left: 5px;
+    background-color: lightgrey;
+ 
+}
+
+#java{
+    width: 50%;
+    padding: 10px;
+    border: 1px solid black;
+    margin-left: 5px;
+    background-color: lightgrey;
+ 
+}
+
+a{
+text-decoration: none;
+}
+
+img{
+margin-left: 50px;
+}
