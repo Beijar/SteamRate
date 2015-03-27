@@ -8,12 +8,7 @@
     </head>
     <body>
         <div class="wrapper index">
-			<h1>SteamRate</h1>
-			<h2>This is not the page you're looking for</h2>
-			<p><em>Error {{ code }}</em></p>
-			{% if description %}
-			<p>{{ description }}</p>
-			{% endif %}
+            <img src="{{ url_for('static', filename = '404.jpg') }}">
         </div>
     </body>
 </html>
