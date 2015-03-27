@@ -3,7 +3,6 @@ from flask import Flask, render_template, request, Response, jsonify
 import json
 from main import api_search, count_average
 
-
 app = Flask(__name__)
 
 
