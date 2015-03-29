@@ -201,12 +201,26 @@ form input[type="text"] {
     display: block;
     float: left;
     height: 100px;
-    width: 33.33%;
+    width: 25%;
     font-size: 35px;
     margin-top: 20px;
     padding-top: 50px;
     padding-bottom: 50px;
     background-color: rgb(58, 61, 78);
+    color: white;
+    text-align: center;
+}
+
+.headline {
+    display: block;
+    float: left;
+    height: 20px;
+    width: 25%;
+    font-size: 25px;
+    margin-top: 20px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    background-color: rgb(50, 64, 94);
     color: white;
     text-align: center;
 }

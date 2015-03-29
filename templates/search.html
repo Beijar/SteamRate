@@ -2,7 +2,6 @@
 <html>
 <head>
     <meta charset="utf-8">
-
     <title>SteamRate</title>
     <link href="{{ url_for('static', filename='steamrate.css') }}" rel="stylesheet" type="text/css">
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -24,7 +23,6 @@
         <div id="logo">
             <img id="steamlogo" src="{{ url_for('static', filename = 'testlogo.png') }}">
         </div>
-
         <section>
             <form action="/search" class="searchform" method="get">
                 <input name="q" placeholder="Steam ID" type="text" value="">
@@ -54,6 +52,10 @@
     
    <div id="result">
         <ul class="games">
+            <li class="headline"></li>
+            <li class="headline">Name</li>
+            <li class="headline">Time Played</li>
+            <li class="headline">Score</li>
         </ul>
    </div>
 
@@ -63,9 +65,10 @@
 
 
    <script type="text/javascript">
-		var ENDPOINT = "http://127.0.0.1:5000/api/search";
+		var ENDPOINT = "http://127.0.0.1:5000/api/search"; //URL to SteamRate API, bad hardcode
 		
-		function doSearch(){
+		function SteamSearch(){
+            //function call to the SteamRate API on form submit
             $(".spinner").show();
 			var q = $("input[name=q]").val();
 			$.ajax({
@@ -78,25 +81,31 @@
 		}
 		
 		function showResult(response){
-			console.log(response);
+            //Function to present the SteamRate API response dynamicly on this HTML page
+            //TO DO: Present total owned games
             var $ul = $(".games");
             var $average = $("#average");
 
             $average.append('<h2 class="pulse">' + response.average + '</h2>');
 
             for (var i = 0; i < response.result.length; ++i) {
+                var playtime = (response.result[i].playtime_forever/60>>0); //computes play time minutes to hours
+
                 $ul.append('<li class=game><img class="thumbnail" src="' + response.result[i].thumbnail + '">' + '</li>');
                 $ul.append('<li class="game">' + response.result[i].name + '</li>');
+                $ul.append('<li class="game">' + playtime + 'h' + '</li>');
                 $ul.append('<li class="game">' + response.result[i].userscore + '</li>');
                 }
+
+            //Animations for presenting search result
             $(".spinner").hide();
             $('html, body').animate({ scrollTop: 900 }, 1000);
             $("#games").fadeIn(1100);
             }
 
-		
+		// Setup initial state
 		$(function(){
-			$("form").submit(doSearch);
+			$("form").submit(SteamSearch);
             $(".spinner").hide();
 		});
    </script>
